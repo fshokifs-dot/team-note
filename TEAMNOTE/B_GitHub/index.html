@@ -20,5 +20,14 @@
 <body>
 
 <iframe src="https://script.google.com/macros/s/AKfycbx1AZwOr6ARt-0p6y-cPRbMyYyZt4r2i2AZK2vG1WTPdvpy5jF9OfYvl5KRHbqJv1ND/exec" allow="clipboard-write"></iframe>
+<script>
+addEventListener('message',function(e){
+ var d=e.data;if(!d||d.tn!=='id')return;
+ try{if(!/googleusercontent\.com$/.test(new URL(e.origin).hostname))return}catch(x){return}
+ if(d.op==='set'){try{localStorage.setItem('tn_id',JSON.stringify(d.v))}catch(x){}}
+ if(d.op==='get'){var v=null;try{v=JSON.parse(localStorage.getItem('tn_id')||'null')}catch(x){}
+  e.source.postMessage({tn:'id',op:'val',v:v},'*')}
+});
+</script>
 </body>
 </html>
